@@ -30,6 +30,8 @@ def main():
         color = 'blue'
     shields_io_url = 'https://raster.shields.io/badge/' + label + '-' + message + '-' + color
     r = requests.get(url = shields_io_url, allow_redirects=True)
+    if not os.path.exists('/drone/src/images'):
+        os.mkdir('/drone/src/images')
     if not os.path.exists('/drone/src/images/badges'):
         os.mkdir('/drone/src/images/badges')
     open('/drone/src/images/badges' + badge_prefix + '_badge.png', 'wb').write(r.content)

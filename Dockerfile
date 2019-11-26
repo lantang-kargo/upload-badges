@@ -1,5 +1,5 @@
 FROM python:3-alpine as builder
-RUN apk add --no-cache alpine-sdk libffi-dev openssl-dev python3-dev jq
+RUN apk add --no-cache alpine-sdk libffi-dev openssl-dev python3-dev jq grep head
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
