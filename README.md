@@ -9,7 +9,7 @@ name: default
 steps:
   
   - name: upload badges
-  image: lstama/upload_badges:latest
+  image: lstama/upload-badge:latest
   settings:
     s3_bucket:
       from_secret: s3_bucket
