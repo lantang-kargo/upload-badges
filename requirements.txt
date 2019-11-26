@@ -1,5 +1,1 @@
-os
 requests
-urllib
-json
-subprocess
