@@ -28,13 +28,13 @@ def main():
     available_color = ['brightgreen', 'green', 'yellowgreen', 'yellow', 'orange', 'red', 'blue', 'lightgrey']
     if color not in available_color:
         color = 'blue'
-    shields_io_url = 'https://raster.shields.io/badge/' + label + '-' + message + '-' + color
+    shields_io_url = 'https://img.shields.io/badge/' + label + '-' + message + '-' + color + '?logo=drone'
     r = requests.get(url = shields_io_url, allow_redirects=True)
     if not os.path.exists('/drone/src/images'):
         os.mkdir('/drone/src/images')
     if not os.path.exists('/drone/src/images/badges'):
         os.mkdir('/drone/src/images/badges')
-    open('/drone/src/images/badges/' + badge_prefix + '_badge.png', 'wb').write(r.content)
+    open('/drone/src/images/badges/' + badge_prefix + '_badge.svg', 'wb').write(r.content)
     subprocess.call(['/plugin/upload_to_aws.sh'])
 
 main()
