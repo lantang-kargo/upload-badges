@@ -34,7 +34,7 @@ def main():
         os.mkdir('/drone/src/images')
     if not os.path.exists('/drone/src/images/badges'):
         os.mkdir('/drone/src/images/badges')
-    open('/drone/src/images/badges' + badge_prefix + '_badge.png', 'wb').write(r.content)
+    open('/drone/src/images/badges/' + badge_prefix + '_badge.png', 'wb').write(r.content)
     subprocess.call(['/plugin/upload_to_aws.sh'])
 
 main()
