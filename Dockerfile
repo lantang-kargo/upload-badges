@@ -11,7 +11,7 @@ COPY --from=builder requirements.txt .
 RUN pip install -r requirements.txt && rm -rf /root/.cache
 
 RUN apk update \
-    && apk add unzip\
+    && apk add jq curl unzip\
     && rm -rf /var/cache/apk/*
 
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
